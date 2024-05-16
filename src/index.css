@@ -1,12 +1,4 @@
 @import "./reset.css";
-
-#root {
-  width: 1200px;
-  height: 800px;
-  border: 1px solid #000000;
-  padding: 10px;
-  border-radius: 10px;
-}
 body {
   display: flex;
   width: 100vw;
@@ -14,39 +6,91 @@ body {
   justify-content: center;
   align-items: center;
 }
+#root {
+  width: 1200px;
+  height: 800px;
+}
+
 h1 {
   font-size: 40px;
-  margin: 20px auto;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
 }
-form {
-  display: flex;
-  height: 80px;
 
-  align-items: center;
-  gap: 10px;
+form {
+  margin-bottom: 20px;
 }
+
+.input-text {
+  margin-bottom: 10px;
+}
+
 h2 {
   margin: 15px auto 15px;
   font-size: 32px;
+  font-weight: 700;
 }
 
 ul {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  list-style-type: none;
+  padding: 0;
 }
+
 li {
   border: 1px solid #000000;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
 }
-.input-text {
-  display: flex;
-  gap: 5px;
+
+li p {
+  margin: 5px 0;
 }
+
 button {
-  margin: 10px 5px 0 5px;
+  margin-left: 5px;
+  cursor: pointer;
 }
+
+.title,
+.content {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .add {
-  margin: 0px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add:hover {
+  background-color: #45a049;
+}
+
+button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #e53935;
 }

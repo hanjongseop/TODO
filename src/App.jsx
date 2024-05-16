@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const initialState = []; // Assuming empty initial state
+  const initialState = []; //
 
   const [todoList, setTodoList] = useState(initialState);
   const [newTitle, setNewTitle] = useState("");
@@ -29,21 +29,19 @@ function App() {
   };
 
   const toggleDone = (id) => {
-    const updatedTodos = todoList.map((todo) =>
+    const updatedTodo = todoList.map((todo) =>
       todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
     );
-    setTodoList(updatedTodos);
+    setTodoList(updatedTodo);
   };
 
-  const workingTodos = todoList.filter((todo) => !todo.isDone);
+  const workingTodo = todoList.filter((todo) => !todo.isDone);
 
-  const doneTodos = todoList.filter((todo) => todo.isDone);
+  const doneTodo = todoList.filter((todo) => todo.isDone);
 
   return (
     <>
-      <header>
-        <h1>TODO</h1>
-      </header>
+      <h1>TODO</h1>
 
       <div>
         <form onSubmit={addTodo}>
@@ -67,7 +65,7 @@ function App() {
         </form>
         <h2>Working </h2>
         <ul>
-          {workingTodos.map((todo) => (
+          {workingTodo.map((todo) => (
             <li key={todo.id}>
               <div className="input-text">
                 <p>제목:{todo.title}</p>
@@ -81,7 +79,7 @@ function App() {
         </ul>
         <h2>Done</h2>
         <ul>
-          {doneTodos.map((todo) => (
+          {doneTodo.map((todo) => (
             <li key={todo.id}>
               <div className="input-text">
                 <p>제목:{todo.title}</p>
