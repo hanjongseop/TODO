@@ -75,15 +75,16 @@ function App() {
             추가
           </button>
         </form>
-        <h2>Working </h2>
+
         <TodoCard
+          status="Working"
           todos={workingTodo}
           toggleDone={toggleDone}
           removeTodo={removeTodo}
         />
 
-        <h2>Done</h2>
         <TodoCard
+          status="Done"
           todos={doneTodo}
           toggleDone={toggleDone}
           removeTodo={removeTodo}
