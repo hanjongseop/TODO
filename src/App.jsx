@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import TodoCard from "./components/TodoCard";
 
 function App() {
   const initialState = []; //
@@ -17,10 +18,14 @@ function App() {
     }
     setNewTitle("");
     setNewBody("");
-    setTodoList([
-      ...todoList,
-      { id: Date.now(), title: newTitle, body: newBody, isDone: false },
-    ]);
+
+    const newTodo = {
+      id: Date.now(),
+      title: newTitle,
+      body: newBody,
+      isDone: false,
+    };
+    setTodoList([...todoList, newTodo]);
   };
 
   const removeTodo = (id) => {
@@ -54,7 +59,7 @@ function App() {
           />
           내용
           <input
-            className="content"
+            className="title"
             type="text"
             value={newBody}
             onChange={(e) => setNewBody(e.target.value)}
@@ -64,33 +69,18 @@ function App() {
           </button>
         </form>
         <h2>Working </h2>
-        <ul>
-          {workingTodo.map((todo) => (
-            <li key={todo.id}>
-              <div className="input-text">
-                <p>제목:{todo.title}</p>
-                <p>내용:{todo.body}</p>
-              </div>
+        <TodoCard
+          todos={workingTodo}
+          toggleDone={toggleDone}
+          removeTodo={removeTodo}
+        />
 
-              <button onClick={() => toggleDone(todo.id)}>완료</button>
-              <button onClick={() => removeTodo(todo.id)}>삭제</button>
-            </li>
-          ))}
-        </ul>
         <h2>Done</h2>
-        <ul>
-          {doneTodo.map((todo) => (
-            <li key={todo.id}>
-              <div className="input-text">
-                <p>제목:{todo.title}</p>
-                <p>내용:{todo.body}</p>
-              </div>
-
-              <button onClick={() => toggleDone(todo.id)}>취소</button>
-              <button onClick={() => removeTodo(todo.id)}>삭제</button>
-            </li>
-          ))}
-        </ul>
+        <TodoCard
+          todos={doneTodo}
+          toggleDone={toggleDone}
+          removeTodo={removeTodo}
+        />
       </div>
     </>
   );
