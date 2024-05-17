@@ -8,7 +8,7 @@ const TodoCard = ({ todos, toggleDone, removeTodo }) => {
             <p>내용: {todo.body}</p>
           </div>
           <button onClick={() => toggleDone(todo.id)}>
-            {/* todo.isDone  = ture면 취소  false면 완료 */}
+            {/* todo.isDone  = todo.isDone이면 취소  todo.isDone아니면 완료 */}
             {todo.isDone ? "취소" : "완료"}
           </button>
           <button onClick={() => removeTodo(todo.id)}>삭제</button>

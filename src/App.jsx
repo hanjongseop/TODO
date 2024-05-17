@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import TodoCard from "./components/TodoCard";
+import TodoInput from "./components/TodoInput";
 
 function App() {
   const initialState = []; //
@@ -44,26 +45,32 @@ function App() {
 
   const doneTodo = todoList.filter((todo) => todo.isDone);
 
+  const titleValue = (e) => {
+    setNewTitle(e.target.value);
+  };
+  const bodyValue = (e) => {
+    setNewBody(e.target.value);
+  };
+
   return (
     <>
       <h1>TODO</h1>
 
       <div>
         <form onSubmit={addTodo}>
-          제목
-          <input
-            className="title"
+          <TodoInput
+            label="제목"
             type="text"
             value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
+            onChange={titleValue}
           />
-          내용
-          <input
-            className="title"
+          <TodoInput
+            label="내용"
             type="text"
             value={newBody}
-            onChange={(e) => setNewBody(e.target.value)}
+            onChange={bodyValue}
           />
+
           <button className="add" type="submit">
             추가
           </button>
